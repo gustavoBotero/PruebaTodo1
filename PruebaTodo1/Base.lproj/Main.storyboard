@@ -13,13 +13,13 @@
         <!--Root View Controller-->
         <scene sceneID="wOy-cy-bIH">
             <objects>
-                <tableViewController id="VX1-Sb-i6l" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="listGames" id="VX1-Sb-i6l" customClass="ListResultTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Xfv-i6-fIz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="iby-rK-cnG">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="titleListCell" rowHeight="100" id="iby-rK-cnG">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iby-rK-cnG" id="Ce2-0s-SFW">
@@ -40,6 +40,9 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="e9x-gm-0MT" secondAttribute="trailing" constant="8" id="jYJ-g0-wk1"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="tp9-yt-Jri" kind="show" id="prN-8W-8cG"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -62,7 +65,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Rhq-6Q-CXE">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCell" id="Rhq-6Q-CXE" customClass="SearchTableViewCell">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rhq-6Q-CXE" id="NE0-qo-ZGd">
@@ -80,6 +83,9 @@
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <action selector="searchGame:" destination="tHh-nW-I8n" eventType="editingDidEnd" id="d5W-uu-dBv"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -93,7 +99,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="115" id="XUt-au-Lzm">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageCell" rowHeight="115" id="XUt-au-Lzm" customClass="ImageTableViewCell">
                                 <rect key="frame" x="0.0" y="72" width="375" height="115"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XUt-au-Lzm" id="piA-Ud-RjV">
@@ -122,8 +128,12 @@
                                         <constraint firstAttribute="trailing" secondItem="Whp-uA-74e" secondAttribute="trailing" id="ynr-1y-I6X"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imgGame" destination="HLC-YQ-TRB" id="Ad3-BF-JBW"/>
+                                    <outlet property="lblScoreGame" destination="jbJ-Mm-TUp" id="Rqe-wG-9J5"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="YKy-h4-F2q">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="propertiesCell" id="YKy-h4-F2q" customClass="PropertiesTableViewCell">
                                 <rect key="frame" x="0.0" y="187" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YKy-h4-F2q" id="lFZ-mG-a4T">
@@ -152,8 +162,12 @@
                                         <constraint firstAttribute="bottom" secondItem="5oF-Wb-r8c" secondAttribute="bottom" constant="8" id="ob8-lG-wZW"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="lblProperties" destination="zbk-IJ-FU4" id="7dV-Kw-CKk"/>
+                                    <outlet property="lblPropertyDescription" destination="5oF-Wb-r8c" id="NVw-Af-I2D"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="E55-4N-E7E">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="descriptionCell" id="E55-4N-E7E" customClass="DescriptionTableViewCell">
                                 <rect key="frame" x="0.0" y="231" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E55-4N-E7E" id="4qc-EG-RZk">
@@ -174,8 +188,11 @@
                                         <constraint firstAttribute="bottom" secondItem="xOr-29-CZO" secondAttribute="bottom" constant="8" id="naR-ry-iqk"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="lblGameDescription" destination="xOr-29-CZO" id="c4H-Hj-RBX"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="REV-Ji-yta">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shareCell" id="REV-Ji-yta" customClass="ShareTableViewCell">
                                 <rect key="frame" x="0.0" y="275" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="REV-Ji-yta" id="jos-l3-HIZ">
@@ -188,6 +205,9 @@
                                             <state key="normal" title="Compartir en redes sociales">
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
+                                            <connections>
+                                                <action selector="shareInSocialNetworks:" destination="REV-Ji-yta" eventType="touchUpInside" id="iNS-tL-oDO"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -206,8 +226,9 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dDj-Tg-eBf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="tHh-nW-I8n" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1368.8" y="-252.32383808095955"/>
+            <point key="canvasLocation" x="1351" y="1039"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tSR-Bk-OEZ">
@@ -239,14 +260,23 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSQ-kw-GNu">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="134.5"/>
                                         <state key="normal" title="Top 10 por plataforma"/>
+                                        <connections>
+                                            <segue destination="VX1-Sb-i6l" kind="show" id="4e8-HU-fmf"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dj-nf-mKx">
                                         <rect key="frame" x="0.0" y="174.5" width="343" height="134"/>
                                         <state key="normal" title="Top 20"/>
+                                        <connections>
+                                            <segue destination="VX1-Sb-i6l" kind="show" id="ORE-dX-hzV"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P65-fE-jyR">
                                         <rect key="frame" x="0.0" y="348.5" width="343" height="134.5"/>
                                         <state key="normal" title="Buscar juego"/>
+                                        <connections>
+                                            <segue destination="tp9-yt-Jri" kind="show" id="j9r-eC-qmQ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -268,4 +298,8 @@
             <point key="canvasLocation" x="-294" y="278"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="prN-8W-8cG"/>
+        <segue reference="4e8-HU-fmf"/>
+    </inferredMetricsTieBreakers>
 </document>

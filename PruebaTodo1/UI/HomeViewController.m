@@ -26,7 +26,7 @@
     NSURL *url = [NSURL URLWithString: urlString];
     
     [[NSURLSession.sharedSession dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        <#code#>
+        NSLog(@"");
     }] resume];
 }
 

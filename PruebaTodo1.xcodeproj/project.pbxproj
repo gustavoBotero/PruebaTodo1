@@ -15,8 +15,14 @@
 		9F3957552202B7A700F2E423 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3957542202B7A700F2E423 /* main.m */; };
 		9F39575F2202B7A700F2E423 /* PruebaTodo1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F39575E2202B7A700F2E423 /* PruebaTodo1Tests.m */; };
 		9F39576A2202B7A700F2E423 /* PruebaTodo1UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3957692202B7A700F2E423 /* PruebaTodo1UITests.m */; };
-		9F3957812202BC3A00F2E423 /* GameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3957802202BC3A00F2E423 /* GameDetailViewController.m */; };
 		9F3957852202BD6500F2E423 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3957842202BD6500F2E423 /* HomeViewController.m */; };
+		9F39578B2202D41700F2E423 /* ListResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F39578A2202D41700F2E423 /* ListResultTableViewController.m */; };
+		9F39578E2202E60700F2E423 /* GameDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F39578D2202E60700F2E423 /* GameDetailTableViewController.m */; };
+		9F3957922202ED9C00F2E423 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3957912202ED9C00F2E423 /* SearchTableViewCell.m */; };
+		9F3957952202EDB500F2E423 /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3957942202EDB500F2E423 /* ImageTableViewCell.m */; };
+		9F3957982202EDC700F2E423 /* PropertiesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3957972202EDC700F2E423 /* PropertiesTableViewCell.m */; };
+		9F39579B2202EDDC00F2E423 /* DescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F39579A2202EDDC00F2E423 /* DescriptionTableViewCell.m */; };
+		9F39579E2202EDE800F2E423 /* ShareTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F39579D2202EDE800F2E423 /* ShareTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,10 +58,22 @@
 		9F3957652202B7A700F2E423 /* PruebaTodo1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PruebaTodo1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F3957692202B7A700F2E423 /* PruebaTodo1UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PruebaTodo1UITests.m; sourceTree = "<group>"; };
 		9F39576B2202B7A700F2E423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9F39577F2202BC3A00F2E423 /* GameDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameDetailViewController.h; sourceTree = "<group>"; };
-		9F3957802202BC3A00F2E423 /* GameDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameDetailViewController.m; sourceTree = "<group>"; };
 		9F3957832202BD6500F2E423 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		9F3957842202BD6500F2E423 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		9F3957892202D41700F2E423 /* ListResultTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListResultTableViewController.h; sourceTree = "<group>"; };
+		9F39578A2202D41700F2E423 /* ListResultTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListResultTableViewController.m; sourceTree = "<group>"; };
+		9F39578C2202E60700F2E423 /* GameDetailTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameDetailTableViewController.h; sourceTree = "<group>"; };
+		9F39578D2202E60700F2E423 /* GameDetailTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameDetailTableViewController.m; sourceTree = "<group>"; };
+		9F3957902202ED9C00F2E423 /* SearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
+		9F3957912202ED9C00F2E423 /* SearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
+		9F3957932202EDB500F2E423 /* ImageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageTableViewCell.h; sourceTree = "<group>"; };
+		9F3957942202EDB500F2E423 /* ImageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageTableViewCell.m; sourceTree = "<group>"; };
+		9F3957962202EDC700F2E423 /* PropertiesTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PropertiesTableViewCell.h; sourceTree = "<group>"; };
+		9F3957972202EDC700F2E423 /* PropertiesTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PropertiesTableViewCell.m; sourceTree = "<group>"; };
+		9F3957992202EDDC00F2E423 /* DescriptionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DescriptionTableViewCell.h; sourceTree = "<group>"; };
+		9F39579A2202EDDC00F2E423 /* DescriptionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DescriptionTableViewCell.m; sourceTree = "<group>"; };
+		9F39579C2202EDE800F2E423 /* ShareTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareTableViewCell.h; sourceTree = "<group>"; };
+		9F39579D2202EDE800F2E423 /* ShareTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,10 +167,13 @@
 		9F39577E2202BBDA00F2E423 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				9F39577F2202BC3A00F2E423 /* GameDetailViewController.h */,
-				9F3957802202BC3A00F2E423 /* GameDetailViewController.m */,
+				9F39578F2202EC5C00F2E423 /* CustomCells */,
 				9F3957832202BD6500F2E423 /* HomeViewController.h */,
 				9F3957842202BD6500F2E423 /* HomeViewController.m */,
+				9F3957892202D41700F2E423 /* ListResultTableViewController.h */,
+				9F39578A2202D41700F2E423 /* ListResultTableViewController.m */,
+				9F39578C2202E60700F2E423 /* GameDetailTableViewController.h */,
+				9F39578D2202E60700F2E423 /* GameDetailTableViewController.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -162,6 +183,23 @@
 			children = (
 			);
 			path = IO;
+			sourceTree = "<group>";
+		};
+		9F39578F2202EC5C00F2E423 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				9F3957902202ED9C00F2E423 /* SearchTableViewCell.h */,
+				9F3957912202ED9C00F2E423 /* SearchTableViewCell.m */,
+				9F3957932202EDB500F2E423 /* ImageTableViewCell.h */,
+				9F3957942202EDB500F2E423 /* ImageTableViewCell.m */,
+				9F3957962202EDC700F2E423 /* PropertiesTableViewCell.h */,
+				9F3957972202EDC700F2E423 /* PropertiesTableViewCell.m */,
+				9F3957992202EDDC00F2E423 /* DescriptionTableViewCell.h */,
+				9F39579A2202EDDC00F2E423 /* DescriptionTableViewCell.m */,
+				9F39579C2202EDE800F2E423 /* ShareTableViewCell.h */,
+				9F39579D2202EDE800F2E423 /* ShareTableViewCell.m */,
+			);
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,11 +332,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F39579E2202EDE800F2E423 /* ShareTableViewCell.m in Sources */,
+				9F39578E2202E60700F2E423 /* GameDetailTableViewController.m in Sources */,
 				9F39574D2202B7A700F2E423 /* PruebaTodo1.xcdatamodeld in Sources */,
 				9F3957552202B7A700F2E423 /* main.m in Sources */,
-				9F3957812202BC3A00F2E423 /* GameDetailViewController.m in Sources */,
+				9F39578B2202D41700F2E423 /* ListResultTableViewController.m in Sources */,
+				9F39579B2202EDDC00F2E423 /* DescriptionTableViewCell.m in Sources */,
 				9F3957852202BD6500F2E423 /* HomeViewController.m in Sources */,
+				9F3957952202EDB500F2E423 /* ImageTableViewCell.m in Sources */,
+				9F3957922202ED9C00F2E423 /* SearchTableViewCell.m in Sources */,
 				9F3957442202B7A700F2E423 /* AppDelegate.m in Sources */,
+				9F3957982202EDC700F2E423 /* PropertiesTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,6 +23,9 @@
 		9F3957982202EDC700F2E423 /* PropertiesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3957972202EDC700F2E423 /* PropertiesTableViewCell.m */; };
 		9F39579B2202EDDC00F2E423 /* DescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F39579A2202EDDC00F2E423 /* DescriptionTableViewCell.m */; };
 		9F39579E2202EDE800F2E423 /* ShareTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F39579D2202EDE800F2E423 /* ShareTableViewCell.m */; };
+		9FC96B0B2203F92A00EEC1AC /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC96B0A2203F92A00EEC1AC /* Game.m */; };
+		9FC96B112203F96000EEC1AC /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC96B102203F96000EEC1AC /* Platform.m */; };
+		9FC96B152203FBF700EEC1AC /* ResponseGeneric.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC96B142203FBF700EEC1AC /* ResponseGeneric.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +77,12 @@
 		9F39579A2202EDDC00F2E423 /* DescriptionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DescriptionTableViewCell.m; sourceTree = "<group>"; };
 		9F39579C2202EDE800F2E423 /* ShareTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareTableViewCell.h; sourceTree = "<group>"; };
 		9F39579D2202EDE800F2E423 /* ShareTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareTableViewCell.m; sourceTree = "<group>"; };
+		9FC96B092203F92A00EEC1AC /* Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		9FC96B0A2203F92A00EEC1AC /* Game.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		9FC96B0F2203F96000EEC1AC /* Platform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
+		9FC96B102203F96000EEC1AC /* Platform.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Platform.m; sourceTree = "<group>"; };
+		9FC96B132203FBF700EEC1AC /* ResponseGeneric.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResponseGeneric.h; sourceTree = "<group>"; };
+		9FC96B142203FBF700EEC1AC /* ResponseGeneric.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResponseGeneric.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +169,12 @@
 		9F3957772202BA7F00F2E423 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				9FC96B092203F92A00EEC1AC /* Game.h */,
+				9FC96B0A2203F92A00EEC1AC /* Game.m */,
+				9FC96B0F2203F96000EEC1AC /* Platform.h */,
+				9FC96B102203F96000EEC1AC /* Platform.m */,
+				9FC96B132203FBF700EEC1AC /* ResponseGeneric.h */,
+				9FC96B142203FBF700EEC1AC /* ResponseGeneric.m */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -335,13 +350,16 @@
 				9F39579E2202EDE800F2E423 /* ShareTableViewCell.m in Sources */,
 				9F39578E2202E60700F2E423 /* GameDetailTableViewController.m in Sources */,
 				9F39574D2202B7A700F2E423 /* PruebaTodo1.xcdatamodeld in Sources */,
+				9FC96B0B2203F92A00EEC1AC /* Game.m in Sources */,
 				9F3957552202B7A700F2E423 /* main.m in Sources */,
 				9F39578B2202D41700F2E423 /* ListResultTableViewController.m in Sources */,
+				9FC96B112203F96000EEC1AC /* Platform.m in Sources */,
 				9F39579B2202EDDC00F2E423 /* DescriptionTableViewCell.m in Sources */,
 				9F3957852202BD6500F2E423 /* HomeViewController.m in Sources */,
 				9F3957952202EDB500F2E423 /* ImageTableViewCell.m in Sources */,
 				9F3957922202ED9C00F2E423 /* SearchTableViewCell.m in Sources */,
 				9F3957442202B7A700F2E423 /* AppDelegate.m in Sources */,
+				9FC96B152203FBF700EEC1AC /* ResponseGeneric.m in Sources */,
 				9F3957982202EDC700F2E423 /* PropertiesTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -261,6 +261,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="134.5"/>
                                         <state key="normal" title="Top 10 por plataforma"/>
                                         <connections>
+                                            <action selector="topTenByPlatform:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yZN-xK-S3k"/>
                                             <segue destination="VX1-Sb-i6l" kind="show" id="4e8-HU-fmf"/>
                                         </connections>
                                     </button>
@@ -268,6 +269,7 @@
                                         <rect key="frame" x="0.0" y="174.5" width="343" height="134"/>
                                         <state key="normal" title="Top 20"/>
                                         <connections>
+                                            <action selector="topTwenty:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SX7-Gz-KXf"/>
                                             <segue destination="VX1-Sb-i6l" kind="show" id="ORE-dX-hzV"/>
                                         </connections>
                                     </button>
@@ -275,6 +277,7 @@
                                         <rect key="frame" x="0.0" y="348.5" width="343" height="134.5"/>
                                         <state key="normal" title="Buscar juego"/>
                                         <connections>
+                                            <action selector="searchGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hW3-j6-Mg3"/>
                                             <segue destination="tp9-yt-Jri" kind="show" id="j9r-eC-qmQ"/>
                                         </connections>
                                     </button>
@@ -299,7 +302,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="prN-8W-8cG"/>
+        <segue reference="j9r-eC-qmQ"/>
         <segue reference="4e8-HU-fmf"/>
     </inferredMetricsTieBreakers>
 </document>

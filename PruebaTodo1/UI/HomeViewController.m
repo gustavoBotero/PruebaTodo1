@@ -8,8 +8,12 @@
 
 #import "HomeViewController.h"
 #import "ResponseGeneric.h"
+#import "ListResultTableViewController.h"
 
 @interface HomeViewController ()
+
+@property (strong, nonatomic) NSMutableArray<ResponseGeneric *> *objects;
+@property (strong, nonatomic) NSMutableArray<ResponseGeneric *> *objectsImg;
 
 @end
 
@@ -20,7 +24,7 @@
 
 }
 
-- (void)fetchGamesList:(NSString *)urlString body:(NSString *)body {
+- (void)fetchGamesList:(NSString *)segue urlString:(NSString *)urlString body:(NSString *)body {
     
     NSURLSessionConfiguration* sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession* session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:nil delegateQueue:nil];
@@ -52,11 +56,21 @@
                 object.idObject = idObject;
                 if(objectDict[@"name"]){
                     object.string = nameObject;
+                    [objects addObject:object];
+                    self.objects = objects;
                 } else if (objectDict[@"url"]){
                     object.string = urlObject;
+                    [objects addObject:object];
+                    self.objectsImg = objects;
                 }
-                [objects addObject:object];
             }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self performSegueWithIdentifier:segue sender:nil];
+            });
+//            ListResultTableViewController *listResultTableViewController = [[ListResultTableViewController alloc] initWithNibName:@"ListResultTableViewController" bundle:nil];
+//            listResultTableViewController.object = self.objects;
+//            [self.navigationController pushViewController:listResultTableViewController animated:YES];
+            
             NSLog(@"%@", objects);
             // Success
             NSLog(@"URL Session Task Succeeded: HTTP %ld", ((NSHTTPURLResponse*)response).statusCode);
@@ -69,17 +83,34 @@
     [task resume];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"topTenSegue"]) {
+        ListResultTableViewController *listResultTableViewController = segue.destinationViewController;
+        listResultTableViewController.object = self.objects;
+    }
+    if ([segue.identifier isEqualToString:@"topTwentySegue"]) {
+        ListResultTableViewController *listResultTableViewController = segue.destinationViewController;
+        listResultTableViewController.object = self.objects;
+    }
+    if ([segue.identifier isEqualToString:@"searchGameSegue"]) {
+        ListResultTableViewController *listResultTableViewController = segue.destinationViewController;
+        listResultTableViewController.object = self.objects;
+    }
+}
+
 - (IBAction)topTenByPlatform:(id)sender {
-    [self fetchGamesList: @"https://api-v3.igdb.com/platforms/" body:@"fields name; id;"];
-    [self fetchGamesList: @"https://api-v3.igdb.com/platform_logos/" body:@"fields url;"];
+    [self fetchGamesList:@"topTenSegue" urlString:@"https://api-v3.igdb.com/platforms/" body:@"fields name; id;"];
+    //[self fetchGamesList: @"" urlString:@"https://api-v3.igdb.com/platform_logos/" body:@"fields url;"];
 }
 
 - (IBAction)topTwenty:(id)sender {
-    [self fetchGamesList: @"https://api-v3.igdb.com/games/" body:@"fields name; id;"];
+    [self fetchGamesList: @"topTwentySegue" urlString:@"https://api-v3.igdb.com/games/" body:@"fields name; id;"];
+    
+//    [self performSegueWithIdentifier:@"topTwentySegue" sender:nil];
 }
 
 - (IBAction)searchGame:(id)sender {
-    [self fetchGamesList: @"https://api-v3.igdb.com/games/" body:@"fields name; id;"];
+    [self fetchGamesList: @"searchGameSegue" urlString:@"https://api-v3.igdb.com/games/" body:@"fields name; id;"];
 }
 
 

@@ -19,28 +19,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="titleListCell" rowHeight="100" id="iby-rK-cnG">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="listGamesCell" rowHeight="100" id="iby-rK-cnG" customClass="ListGamesTableViewCell">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iby-rK-cnG" id="Ce2-0s-SFW">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9x-gm-0MT">
-                                            <rect key="frame" x="24" y="19" width="327" height="62"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9x-gm-0MT">
+                                            <rect key="frame" x="103.5" y="19" width="247.5" height="62"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tZO-bG-AcG">
+                                            <rect key="frame" x="0.0" y="0.0" width="95.5" height="99.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="tZO-bG-AcG" secondAttribute="height" multiplier="24:25" id="UBs-6B-sSX"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="e9x-gm-0MT" firstAttribute="leading" secondItem="Ce2-0s-SFW" secondAttribute="leadingMargin" constant="8" id="SBJ-XS-k9f"/>
+                                        <constraint firstItem="tZO-bG-AcG" firstAttribute="top" secondItem="Ce2-0s-SFW" secondAttribute="top" id="7pl-OR-leh"/>
+                                        <constraint firstItem="e9x-gm-0MT" firstAttribute="leading" secondItem="tZO-bG-AcG" secondAttribute="trailing" constant="8" id="O98-3s-Yno"/>
+                                        <constraint firstItem="tZO-bG-AcG" firstAttribute="leading" secondItem="Ce2-0s-SFW" secondAttribute="leading" id="Q1y-Ui-4gi"/>
                                         <constraint firstItem="e9x-gm-0MT" firstAttribute="top" secondItem="Ce2-0s-SFW" secondAttribute="topMargin" constant="8" id="Uhp-KT-6eU"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="e9x-gm-0MT" secondAttribute="bottom" constant="8" id="fgF-6L-AjY"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="e9x-gm-0MT" secondAttribute="trailing" constant="8" id="jYJ-g0-wk1"/>
+                                        <constraint firstAttribute="bottom" secondItem="tZO-bG-AcG" secondAttribute="bottom" id="m9g-gb-lsO"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="imgListGames" destination="tZO-bG-AcG" id="gZW-Ig-BXA"/>
+                                    <outlet property="lblTitleGames" destination="e9x-gm-0MT" id="p6h-Zd-JUM"/>
                                     <segue destination="tp9-yt-Jri" kind="show" id="prN-8W-8cG"/>
                                 </connections>
                             </tableViewCell>
@@ -262,7 +273,6 @@
                                         <state key="normal" title="Top 10 por plataforma"/>
                                         <connections>
                                             <action selector="topTenByPlatform:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yZN-xK-S3k"/>
-                                            <segue destination="VX1-Sb-i6l" kind="show" id="4e8-HU-fmf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dj-nf-mKx">
@@ -270,7 +280,6 @@
                                         <state key="normal" title="Top 20"/>
                                         <connections>
                                             <action selector="topTwenty:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SX7-Gz-KXf"/>
-                                            <segue destination="VX1-Sb-i6l" kind="show" id="ORE-dX-hzV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P65-fE-jyR">
@@ -278,7 +287,6 @@
                                         <state key="normal" title="Buscar juego"/>
                                         <connections>
                                             <action selector="searchGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hW3-j6-Mg3"/>
-                                            <segue destination="tp9-yt-Jri" kind="show" id="j9r-eC-qmQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -295,6 +303,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="tRg-Qm-oDH"/>
+                    <connections>
+                        <segue destination="VX1-Sb-i6l" kind="show" identifier="topTwentySegue" id="DTW-Pi-lYH"/>
+                        <segue destination="VX1-Sb-i6l" kind="show" identifier="topTenSegue" id="GeG-0e-b6o"/>
+                        <segue destination="tp9-yt-Jri" kind="show" identifier="searchGameSegue" id="EuB-oB-1ua"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -302,7 +315,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="j9r-eC-qmQ"/>
-        <segue reference="4e8-HU-fmf"/>
+        <segue reference="prN-8W-8cG"/>
+        <segue reference="GeG-0e-b6o"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -26,6 +26,7 @@
 		9FC96B0B2203F92A00EEC1AC /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC96B0A2203F92A00EEC1AC /* Game.m */; };
 		9FC96B112203F96000EEC1AC /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC96B102203F96000EEC1AC /* Platform.m */; };
 		9FC96B152203FBF700EEC1AC /* ResponseGeneric.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC96B142203FBF700EEC1AC /* ResponseGeneric.m */; };
+		9FC96B18220442CF00EEC1AC /* ListGamesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC96B17220442CF00EEC1AC /* ListGamesTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,8 @@
 		9FC96B102203F96000EEC1AC /* Platform.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Platform.m; sourceTree = "<group>"; };
 		9FC96B132203FBF700EEC1AC /* ResponseGeneric.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResponseGeneric.h; sourceTree = "<group>"; };
 		9FC96B142203FBF700EEC1AC /* ResponseGeneric.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResponseGeneric.m; sourceTree = "<group>"; };
+		9FC96B16220442CF00EEC1AC /* ListGamesTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListGamesTableViewCell.h; sourceTree = "<group>"; };
+		9FC96B17220442CF00EEC1AC /* ListGamesTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListGamesTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +216,8 @@
 				9F39579A2202EDDC00F2E423 /* DescriptionTableViewCell.m */,
 				9F39579C2202EDE800F2E423 /* ShareTableViewCell.h */,
 				9F39579D2202EDE800F2E423 /* ShareTableViewCell.m */,
+				9FC96B16220442CF00EEC1AC /* ListGamesTableViewCell.h */,
+				9FC96B17220442CF00EEC1AC /* ListGamesTableViewCell.m */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -348,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F39579E2202EDE800F2E423 /* ShareTableViewCell.m in Sources */,
+				9FC96B18220442CF00EEC1AC /* ListGamesTableViewCell.m in Sources */,
 				9F39578E2202E60700F2E423 /* GameDetailTableViewController.m in Sources */,
 				9F39574D2202B7A700F2E423 /* PruebaTodo1.xcdatamodeld in Sources */,
 				9FC96B0B2203F92A00EEC1AC /* Game.m in Sources */,

@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ResponseGeneric.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ListResultTableViewController : UITableViewController
+
+@property (nonatomic, assign) NSMutableArray<ResponseGeneric *> * object;
 
 @end
 

@@ -1,5 +1,5 @@
 //
-//  ListGamesTableViewCell.h
+//  PlatformsTableViewCell.h
 //  PruebaTodo1
 //
 //  Created by Sara Yazmin Espinal Araque on 2/1/19.
@@ -10,9 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ListGamesTableViewCell : UITableViewCell
+@interface PlatformsTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *lblTitleGames;
+@property (weak, nonatomic) IBOutlet UIImageView *imgPlatform;
+@property (weak, nonatomic) IBOutlet UILabel *lblTitlePlatform;
 
 @end
 

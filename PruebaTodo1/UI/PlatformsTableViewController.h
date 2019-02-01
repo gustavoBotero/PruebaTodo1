@@ -1,8 +1,8 @@
 //
-//  GameDetailTableViewController.h
+//  PlatformsTableViewController.h
 //  PruebaTodo1
 //
-//  Created by Sara Yazmin Espinal Araque on 1/31/19.
+//  Created by Sara Yazmin Espinal Araque on 2/1/19.
 //  Copyright © 2019 Gustavo Adolfo Botero Arango. All rights reserved.
 //
 
@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GameDetailTableViewController : UITableViewController
+@interface PlatformsTableViewController : UITableViewController
 
 @property (nonatomic, assign) NSMutableArray<ResponseGeneric *> * object;
 

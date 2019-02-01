@@ -13,13 +13,13 @@
         <!--Root View Controller-->
         <scene sceneID="wOy-cy-bIH">
             <objects>
-                <tableViewController storyboardIdentifier="listGames" id="VX1-Sb-i6l" customClass="ListResultTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="listPlatforms" id="VX1-Sb-i6l" customClass="PlatformsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Xfv-i6-fIz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="listGamesCell" rowHeight="100" id="iby-rK-cnG" customClass="ListGamesTableViewCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="platformsCell" rowHeight="100" id="iby-rK-cnG" customClass="PlatformsTableViewCell">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iby-rK-cnG" id="Ce2-0s-SFW">
@@ -50,8 +50,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="imgListGames" destination="tZO-bG-AcG" id="gZW-Ig-BXA"/>
-                                    <outlet property="lblTitleGames" destination="e9x-gm-0MT" id="p6h-Zd-JUM"/>
+                                    <outlet property="imgPlatform" destination="tZO-bG-AcG" id="IFa-FS-zXR"/>
+                                    <outlet property="lblTitlePlatform" destination="e9x-gm-0MT" id="LZA-8Z-zKc"/>
                                     <segue destination="tp9-yt-Jri" kind="show" id="prN-8W-8cG"/>
                                 </connections>
                             </tableViewCell>
@@ -62,10 +62,58 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="z3f-t7-LFT"/>
+                    <connections>
+                        <segue destination="fiJ-6k-AsI" kind="show" identifier="listGamesSegue" id="K2s-zE-QSv"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TIL-xJ-4eW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="607.20000000000005" y="277.51124437781112"/>
+        </scene>
+        <!--List Result Table View Controller-->
+        <scene sceneID="G8N-Tp-4tz">
+            <objects>
+                <tableViewController storyboardIdentifier="listGames" id="fiJ-6k-AsI" customClass="ListResultTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="snL-cV-Ms6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="listGamesCell" id="Xxk-Lg-zzl" customClass="ListGamesTableViewCell">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xxk-Lg-zzl" id="gFH-Fl-wSJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75M-bb-VEg">
+                                            <rect key="frame" x="8" y="8" width="359" height="27.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="75M-bb-VEg" firstAttribute="top" secondItem="gFH-Fl-wSJ" secondAttribute="top" constant="8" id="M60-TB-ZhQ"/>
+                                        <constraint firstAttribute="trailing" secondItem="75M-bb-VEg" secondAttribute="trailing" constant="8" id="cyb-7z-ian"/>
+                                        <constraint firstAttribute="bottom" secondItem="75M-bb-VEg" secondAttribute="bottom" constant="8" id="tZa-S2-RoE"/>
+                                        <constraint firstItem="75M-bb-VEg" firstAttribute="leading" secondItem="gFH-Fl-wSJ" secondAttribute="leading" constant="8" id="txi-Oy-Gxp"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="lblTitleGames" destination="75M-bb-VEg" id="0iy-rh-k6Z"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fiJ-6k-AsI" id="m8b-Os-XFE"/>
+                            <outlet property="delegate" destination="fiJ-6k-AsI" id="4pz-jF-B5X"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="39v-Td-fag" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="607" y="-437"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="FiE-ad-CI2">
@@ -304,9 +352,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="tRg-Qm-oDH"/>
                     <connections>
-                        <segue destination="VX1-Sb-i6l" kind="show" identifier="topTwentySegue" id="DTW-Pi-lYH"/>
                         <segue destination="VX1-Sb-i6l" kind="show" identifier="topTenSegue" id="GeG-0e-b6o"/>
                         <segue destination="tp9-yt-Jri" kind="show" identifier="searchGameSegue" id="EuB-oB-1ua"/>
+                        <segue destination="fiJ-6k-AsI" kind="show" identifier="topTwentySegue" id="xFU-6o-buy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -316,6 +364,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="prN-8W-8cG"/>
-        <segue reference="GeG-0e-b6o"/>
+        <segue reference="K2s-zE-QSv"/>
     </inferredMetricsTieBreakers>
 </document>

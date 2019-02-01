@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "ResponseGeneric.h"
 #import "ListResultTableViewController.h"
+#import "GameDetailTableViewController.h"
 
 @interface HomeViewController ()
 
@@ -93,8 +94,8 @@
         listResultTableViewController.object = self.objects;
     }
     if ([segue.identifier isEqualToString:@"searchGameSegue"]) {
-        ListResultTableViewController *listResultTableViewController = segue.destinationViewController;
-        listResultTableViewController.object = self.objects;
+        GameDetailTableViewController *gameDetailTableViewController = segue.destinationViewController;
+        gameDetailTableViewController.object = self.objects;
     }
 }
 

@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GameDetailTableViewController : UITableViewController
 
-@property (nonatomic, assign) NSMutableArray<ResponseGeneric *> * object;
+@property (nonatomic, assign) NSString *idGame;
 
 @end
 

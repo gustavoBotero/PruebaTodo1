@@ -93,10 +93,10 @@
         ListResultTableViewController *listResultTableViewController = segue.destinationViewController;
         listResultTableViewController.object = self.objects;
     }
-    if ([segue.identifier isEqualToString:@"searchGameSegue"]) {
-        GameDetailTableViewController *gameDetailTableViewController = segue.destinationViewController;
-        gameDetailTableViewController.object = self.objects;
-    }
+//    if ([segue.identifier isEqualToString:@"searchGameSegue"]) {
+//        GameDetailTableViewController *gameDetailTableViewController = segue.destinationViewController;
+//        gameDetailTableViewController.object = self.objects;
+//    }
 }
 
 - (IBAction)topTenByPlatform:(id)sender {
@@ -111,7 +111,11 @@
 }
 
 - (IBAction)searchGame:(id)sender {
-    [self fetchGamesList: @"searchGameSegue" urlString:@"https://api-v3.igdb.com/games/" body:@"fields name; id;"];
+//    [self fetchGamesList: @"searchGameSegue" urlString:@"https://api-v3.igdb.com/games/" body:@"fields name; id;"];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self performSegueWithIdentifier:@"searchGameSegue" sender:nil];
+    });
 }
 
 

@@ -52,7 +52,7 @@
                                 <connections>
                                     <outlet property="imgPlatform" destination="tZO-bG-AcG" id="IFa-FS-zXR"/>
                                     <outlet property="lblTitlePlatform" destination="e9x-gm-0MT" id="LZA-8Z-zKc"/>
-                                    <segue destination="tp9-yt-Jri" kind="show" id="prN-8W-8cG"/>
+                                    <segue destination="tp9-yt-Jri" kind="show" identifier="" id="prN-8W-8cG"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -68,7 +68,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TIL-xJ-4eW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="607.20000000000005" y="277.51124437781112"/>
+            <point key="canvasLocation" x="850" y="278"/>
         </scene>
         <!--List Result Table View Controller-->
         <scene sceneID="G8N-Tp-4tz">
@@ -110,15 +110,18 @@
                             <outlet property="delegate" destination="fiJ-6k-AsI" id="4pz-jF-B5X"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="tp9-yt-Jri" kind="show" identifier="topTwentyDeatilGame" id="QLe-do-yfP"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="39v-Td-fag" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="607" y="-437"/>
+            <point key="canvasLocation" x="1622" y="-546"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Game Detail Table View Controller-->
         <scene sceneID="FiE-ad-CI2">
             <objects>
-                <tableViewController id="tp9-yt-Jri" sceneMemberID="viewController">
+                <tableViewController id="tp9-yt-Jri" customClass="GameDetailTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LNa-sv-hlQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -287,7 +290,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dDj-Tg-eBf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="tHh-nW-I8n" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1351" y="1039"/>
+            <point key="canvasLocation" x="1622" y="1197"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tSR-Bk-OEZ">
@@ -363,7 +366,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="prN-8W-8cG"/>
+        <segue reference="QLe-do-yfP"/>
         <segue reference="K2s-zE-QSv"/>
     </inferredMetricsTieBreakers>
 </document>

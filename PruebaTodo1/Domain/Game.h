@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) NSString *idGame;
 @property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *storyline;
 
 @end
 

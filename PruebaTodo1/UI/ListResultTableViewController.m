@@ -32,7 +32,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"listGamesCell"];
     
     ListGamesTableViewCell *cell = (ListGamesTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"listGamesCell" forIndexPath:indexPath];
     

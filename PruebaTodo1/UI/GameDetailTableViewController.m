@@ -8,6 +8,9 @@
 
 #import "GameDetailTableViewController.h"
 #import "Game.h"
+#import "SearchTableViewCell.h"
+#import "ImageTableViewCell.h"
+#import "PropertiesTableViewCell.h"
 #import "DescriptionTableViewCell.h"
 #import "ShareTableViewCell.h"
 
@@ -28,40 +31,6 @@
     [self retreiveGameDetail: @"https://api-v3.igdb.com/games/" body:bodyString];
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 7;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSString *CellIdentifier = @"";
-    UITableViewCell *cell = UITableViewCell.new;
-    
-    if (indexPath.row == 0) {
-        CellIdentifier = @"searchCell";
-    } else if (indexPath.row == 1) {
-        CellIdentifier = @"imageCell";
-    } else if (indexPath.row == 2 || indexPath.row == 3 || indexPath.row == 4) {
-        CellIdentifier = @"propertiesCell";
-    } else if (indexPath.row == 5) {
-        CellIdentifier = @"descriptionCell";
-        DescriptionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"descriptionCell" forIndexPath:indexPath];
-        if (self.game.description == nil) {
-            cell.lblGameDescription.text = @"No hay descripción para este juego";
-        } else {
-            cell.lblGameDescription.text = self.game.storyline;
-        }
-        return cell;
-    } else if (indexPath.row == 6) {
-        ShareTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"shareCell" forIndexPath:indexPath];
-        return cell;
-    }
-    
-    return cell;
-}
-
 - (void)retreiveGameDetail:(NSString *)urlString body:(NSString *)body {
     
     NSURLSessionConfiguration* sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -76,38 +45,93 @@
     
     NSURLSessionDataTask* task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error == nil) {
-            
             NSError *err;
             NSArray *objectJSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&err];
-            
-            if (err) {
-                
-            }
-            
             for(NSDictionary *objectDict in objectJSON) {
-                
                 Game *game = Game.new;
                 game.idGame = objectDict[@"id"];
                 game.name = objectDict[@"name"];
                 game.storyline = objectDict[@"storyline"];
-                
+                game.total_rating = objectDict[@"total_rating"];
                 self.game = game;
             }
-            
             dispatch_async(dispatch_get_main_queue(), ^{
                 [ self.tableView reloadData ];
             });
-            
-            NSLog(@"%@", self.game);
-            // Success
             NSLog(@"URL Session Task Succeeded: HTTP %ld", ((NSHTTPURLResponse*)response).statusCode);
         }
         else {
-            // Failure
             NSLog(@"URL Session Task Failed: %@", [error localizedDescription]);
         }
     }];
     [task resume];
+}
+
+- (void)shareGameDetail {
+    NSString *infoGame = (@"Title: %@ \n Rating: %@ \n Genre: %@ \n Platforms: %@ \n Versions: %@ \n Storyline: %@", self.game.name, self.game.name, self.game.name, self.game.name, self.game.name, self.game.storyline);
+    NSArray *itemsToShare = @[infoGame];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+    activityVC.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeAirDrop, UIActivityTypeMessage, UIActivityTypeMarkupAsPDF, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo];
+    [self presentViewController:activityVC animated:YES completion:nil];
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 7;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = UITableViewCell.new;
+    if (indexPath.row == 0) {
+        SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchCell" forIndexPath:indexPath];
+        return cell;
+    } else if (indexPath.row == 1) {
+        ImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"imageCell" forIndexPath:indexPath];
+        NSNumber *roundedUpNumber = @(ceil(self.game.total_rating.doubleValue));
+        NSString *rating = [roundedUpNumber stringValue];
+        cell.lblScoreGame.text = rating;
+        return cell;
+    } else if (indexPath.row == 2) {
+        PropertiesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"propertiesCell" forIndexPath:indexPath];
+        cell.lblPropertyDescription.text = @"Genre: ";
+        return cell;
+    } else if (indexPath.row == 3) {
+        PropertiesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"propertiesCell" forIndexPath:indexPath];
+        cell.lblPropertyDescription.text = @"Platforms: ";
+        return cell;
+    } else if (indexPath.row == 4) {
+        PropertiesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"propertiesCell" forIndexPath:indexPath];
+        cell.lblPropertyDescription.text = @"Versions: ";
+        return cell;
+    } else if (indexPath.row == 5) {
+        DescriptionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"descriptionCell" forIndexPath:indexPath];
+        cell.lblGameDescription.lineBreakMode = NSLineBreakByTruncatingTail;
+        cell.lblGameDescription.numberOfLines=0;
+        if (self.game.description == nil) {
+            cell.lblGameDescription.text = @"No hay descripción para este juego";
+        } else {
+            cell.lblGameDescription.text = self.game.storyline;
+        }
+        return cell;
+    } else if (indexPath.row == 6) {
+        ShareTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"shareCell" forIndexPath:indexPath];
+        cell.game = self.game;
+        return cell;
+    }
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger selectedRow = indexPath.row; //this is the number row that was selected
+    switch (selectedRow) {
+        case 6:
+            [self shareGameDetail];
+            break;
+        default:
+            break;
+    }
 }
 
 @end

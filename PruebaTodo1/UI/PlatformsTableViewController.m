@@ -9,11 +9,13 @@
 #import "PlatformsTableViewController.h"
 #import "PlatformsTableViewCell.h"
 #import "Game.h"
+#import "ListResultTableViewController.h"
 
 @interface PlatformsTableViewController ()
 
 @property (strong, nonatomic) Game *game;
 @property NSString *idObject;
+@property (strong, nonatomic) NSMutableArray<ResponseGeneric *> *objects;
 
 @end
 
@@ -22,20 +24,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)platformGamesList: (NSString *)urlString body:(NSString *)body {
+- (void)platformGamesList: (NSString *)segue urlString:(NSString *)urlString body:(NSString *)body {
     
     NSURLSessionConfiguration* sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession* session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:nil delegateQueue:nil];
     NSString *bodyData = body;
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
-    
     [request setValue:@"bf52a985c6670a9b7bb9bf95949bd461" forHTTPHeaderField:@"user-key"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPMethod:@"POST"];
@@ -43,30 +39,36 @@
     
     NSURLSessionDataTask* task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error == nil) {
-            
+            NSError *err;
+            NSArray *objectJSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&err];
+            NSMutableArray<ResponseGeneric *> *objects = NSMutableArray.new;
+            for(NSDictionary *objectDict in objectJSON) {
+                ResponseGeneric *object = ResponseGeneric.new;
+                object.idObject = objectDict[@"id"];
+                object.string = objectDict[@"name"];
+                [objects addObject:object];
+                self.objects = objects;
+            }
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self performSegueWithIdentifier:@"listGamesSegue" sender:nil];
+                [self performSegueWithIdentifier:segue sender:nil];
             });
-            //            ListResultTableViewController *listResultTableViewController = [[ListResultTableViewController alloc] initWithNibName:@"ListResultTableViewController" bundle:nil];
-            //            listResultTableViewController.object = self.objects;
-            //            [self.navigationController pushViewController:listResultTableViewController animated:YES];
-            
-            // Success
             NSLog(@"URL Session Task Succeeded: HTTP %ld", ((NSHTTPURLResponse*)response).statusCode);
         }
         else {
-            // Failure
             NSLog(@"URL Session Task Failed: %@", [error localizedDescription]);
         }
     }];
     [task resume];
 }
 
-#pragma mark - Table view data source
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"listGamesSegue"]) {
+        ListResultTableViewController *listResultTableViewController = segue.destinationViewController;
+        listResultTableViewController.object = self.objects;
+    }
+}
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    return 0;
-//}
+#pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.object.count;
@@ -74,65 +76,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ResponseGeneric *object = self.object[indexPath.row];
-    
     self.idObject = object.idObject;
+    NSString *bodyString = [NSString stringWithFormat: @"fields name,category,platforms; limit 10; where category = 0 & platforms = %@;", self.idObject];
+    [self platformGamesList:@"listGamesSegue" urlString:@"https://api-v3.igdb.com/games/" body:bodyString];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"platformsCell" forIndexPath:indexPath];
-    
-    // Configure the cell...
     PlatformsTableViewCell *cell = (PlatformsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"platformsCell" forIndexPath:indexPath];
-    
     ResponseGeneric *object = self.object[indexPath.row];
-    
     cell.lblTitlePlatform.text = object.string;
-    
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

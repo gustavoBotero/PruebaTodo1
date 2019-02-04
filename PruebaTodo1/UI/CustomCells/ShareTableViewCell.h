@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Game.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ShareTableViewCell : UITableViewCell
+
+@property (nonatomic, assign) Game * game;
 
 @end
 

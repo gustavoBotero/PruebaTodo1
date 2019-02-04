@@ -52,7 +52,6 @@
                                 <connections>
                                     <outlet property="imgPlatform" destination="tZO-bG-AcG" id="IFa-FS-zXR"/>
                                     <outlet property="lblTitlePlatform" destination="e9x-gm-0MT" id="LZA-8Z-zKc"/>
-                                    <segue destination="tp9-yt-Jri" kind="show" identifier="" id="prN-8W-8cG"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -174,9 +173,9 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HLC-YQ-TRB">
                                                     <rect key="frame" x="0.0" y="0.0" width="187.5" height="114.5"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbJ-Mm-TUp">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbJ-Mm-TUp">
                                                     <rect key="frame" x="187.5" y="0.0" width="187.5" height="114.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="72"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -203,13 +202,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oF-Wb-r8c">
-                                            <rect key="frame" x="8" y="8" width="42" height="27.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="8" y="8" width="43.5" height="27.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbk-IJ-FU4">
-                                            <rect key="frame" x="58" y="8" width="42" height="27.5"/>
+                                            <rect key="frame" x="59.5" y="8" width="42" height="27.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.32053309185307827" green="0.79870671457445563" blue="0.13875211065242044" alpha="0.67072452910958902" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
@@ -261,22 +260,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbL-b3-Cvg">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compartir en redes sociales" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivo-Wo-dpR">
                                             <rect key="frame" x="8" y="8" width="359" height="27.5"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                            <state key="normal" title="Compartir en redes sociales">
-                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="shareInSocialNetworks:" destination="REV-Ji-yta" eventType="touchUpInside" id="iNS-tL-oDO"/>
-                                            </connections>
-                                        </button>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="ZbL-b3-Cvg" firstAttribute="top" secondItem="jos-l3-HIZ" secondAttribute="top" constant="8" id="GiM-pj-dpr"/>
-                                        <constraint firstAttribute="trailing" secondItem="ZbL-b3-Cvg" secondAttribute="trailing" constant="8" id="Sv4-PI-T1S"/>
-                                        <constraint firstItem="ZbL-b3-Cvg" firstAttribute="leading" secondItem="jos-l3-HIZ" secondAttribute="leading" constant="8" id="czw-2C-aqB"/>
-                                        <constraint firstAttribute="bottom" secondItem="ZbL-b3-Cvg" secondAttribute="bottom" constant="8" id="vNR-x9-3h9"/>
+                                        <constraint firstAttribute="bottom" secondItem="ivo-Wo-dpR" secondAttribute="bottom" constant="8" id="Bbh-Wk-DCN"/>
+                                        <constraint firstAttribute="trailing" secondItem="ivo-Wo-dpR" secondAttribute="trailing" constant="8" id="MGX-t9-kz1"/>
+                                        <constraint firstItem="ivo-Wo-dpR" firstAttribute="leading" secondItem="jos-l3-HIZ" secondAttribute="leading" constant="8" id="Ryd-cT-Jbf"/>
+                                        <constraint firstItem="ivo-Wo-dpR" firstAttribute="top" secondItem="jos-l3-HIZ" secondAttribute="top" constant="8" id="SHr-qV-FTA"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -321,21 +316,33 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSQ-kw-GNu">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="134.5"/>
-                                        <state key="normal" title="Top 10 por plataforma"/>
+                                        <color key="backgroundColor" red="0.88849017664715035" green="1" blue="0.87493235985621265" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <state key="normal" title="Top 10 por plataforma">
+                                            <color key="titleColor" red="0.53494606550000001" green="1" blue="0.70598899530000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
                                         <connections>
                                             <action selector="topTenByPlatform:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yZN-xK-S3k"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dj-nf-mKx">
                                         <rect key="frame" x="0.0" y="174.5" width="343" height="134"/>
-                                        <state key="normal" title="Top 20"/>
+                                        <color key="backgroundColor" red="0.88560765981674194" green="0.99416488409042358" blue="0.87450766563415527" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <state key="normal" title="Top 20">
+                                            <color key="titleColor" red="0.53088313341140747" green="0.98448914289474487" blue="0.70588266849517822" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
                                         <connections>
                                             <action selector="topTwenty:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SX7-Gz-KXf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P65-fE-jyR">
                                         <rect key="frame" x="0.0" y="348.5" width="343" height="134.5"/>
-                                        <state key="normal" title="Buscar juego"/>
+                                        <color key="backgroundColor" red="0.88560765981674194" green="0.99416488409042358" blue="0.87450766563415527" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <state key="normal" title="Buscar juego">
+                                            <color key="titleColor" red="0.53494606551100876" green="1" blue="0.70598899528249992" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
                                         <connections>
                                             <action selector="searchGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hW3-j6-Mg3"/>
                                         </connections>
@@ -366,7 +373,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="QLe-do-yfP"/>
+        <segue reference="EuB-oB-1ua"/>
         <segue reference="K2s-zE-QSv"/>
     </inferredMetricsTieBreakers>
 </document>

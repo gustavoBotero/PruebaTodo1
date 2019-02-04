@@ -18,6 +18,8 @@
 
 @property Game *game;
 
+@property (strong, nonatomic) NSArray<NSString *> *genres;
+
 @end
 
 @implementation GameDetailTableViewController
@@ -26,8 +28,8 @@
     [super viewDidLoad];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    //NSString *bodyString = [NSString stringWithFormat: @"fields *; where id = %@;", self.idGame];
-    NSString *bodyString = [NSString stringWithFormat: @"fields *; where id = 1942;"];
+    NSString *bodyString = [NSString stringWithFormat: @"fields *; where id = %@;", self.idGame];
+    //NSString *bodyString = [NSString stringWithFormat: @"fields *; where id = 1942;"];
     [self retreiveGameDetail: @"https://api-v3.igdb.com/games/" body:bodyString];
 }
 
@@ -53,6 +55,7 @@
                 game.name = objectDict[@"name"];
                 game.storyline = objectDict[@"storyline"];
                 game.total_rating = objectDict[@"total_rating"];
+                game.genres = objectDict[@"genres"];
                 self.game = game;
             }
             dispatch_async(dispatch_get_main_queue(), ^{

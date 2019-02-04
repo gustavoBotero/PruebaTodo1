@@ -42,11 +42,7 @@
             
             NSError *err;
             NSArray *objectJSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&err];
-            
-            if (err) {
-                
-            }
-            
+
             NSMutableArray<ResponseGeneric *> *objects = NSMutableArray.new;
             for(NSDictionary *objectDict in objectJSON) {
                 NSString *idObject = objectDict[@"id"];
@@ -68,16 +64,9 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self performSegueWithIdentifier:segue sender:nil];
             });
-//            ListResultTableViewController *listResultTableViewController = [[ListResultTableViewController alloc] initWithNibName:@"ListResultTableViewController" bundle:nil];
-//            listResultTableViewController.object = self.objects;
-//            [self.navigationController pushViewController:listResultTableViewController animated:YES];
-            
-            NSLog(@"%@", objects);
-            // Success
             NSLog(@"URL Session Task Succeeded: HTTP %ld", ((NSHTTPURLResponse*)response).statusCode);
         }
         else {
-            // Failure
             NSLog(@"URL Session Task Failed: %@", [error localizedDescription]);
         }
     }];
@@ -93,10 +82,6 @@
         ListResultTableViewController *listResultTableViewController = segue.destinationViewController;
         listResultTableViewController.object = self.objects;
     }
-//    if ([segue.identifier isEqualToString:@"searchGameSegue"]) {
-//        GameDetailTableViewController *gameDetailTableViewController = segue.destinationViewController;
-//        gameDetailTableViewController.object = self.objects;
-//    }
 }
 
 - (IBAction)topTenByPlatform:(id)sender {
@@ -106,17 +91,12 @@
 
 - (IBAction)topTwenty:(id)sender {
     [self fetchGamesList: @"topTwentySegue" urlString:@"https://api-v3.igdb.com/games/" body:@"fields name; id;"];
-    
-//    [self performSegueWithIdentifier:@"topTwentySegue" sender:nil];
 }
 
 - (IBAction)searchGame:(id)sender {
-//    [self fetchGamesList: @"searchGameSegue" urlString:@"https://api-v3.igdb.com/games/" body:@"fields name; id;"];
-    
     dispatch_async(dispatch_get_main_queue(), ^{
         [self performSegueWithIdentifier:@"searchGameSegue" sender:nil];
     });
 }
-
 
 @end

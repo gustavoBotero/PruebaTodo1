@@ -32,13 +32,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     ListGamesTableViewCell *cell = (ListGamesTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"listGamesCell" forIndexPath:indexPath];
-    
     ResponseGeneric *object = self.object[indexPath.row];
-    
     cell.lblTitleGames.text = object.string;
-    
     return cell;
 }
 
@@ -56,6 +52,5 @@
         gameDetailTableViewController.idGame = self.idGame;
     }
 }
-
 
 @end

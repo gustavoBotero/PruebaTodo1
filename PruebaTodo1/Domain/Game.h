@@ -16,6 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *storyline;
 @property (strong, nonatomic) NSNumber *total_rating;
+@property (strong, nonatomic) NSArray<NSNumber *> *genres;
+@property (strong, nonatomic) NSArray<NSNumber *> *platforms;
+@property (strong, nonatomic) NSArray<NSNumber *> *versions;
 
 @end
 
